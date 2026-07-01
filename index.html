@@ -1,0 +1,586 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <title>SYNAPSE AI | 捕获物理世界的底层秩序</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    img, video { max-width: 100%; height: auto; display: block; }
+    body { overflow-wrap: break-word; }
+
+    /* ===== CSS Variables ===== */
+    :root {
+      --c-bg:        #ffffff;
+      --c-bg-alt:    #f5f7fa;
+      --c-bg-dark:   #1a1d2e;
+      --c-bg-darker: #141724;
+      --c-text:      #2d3142;
+      --c-text-muted:#6b7280;
+      --c-text-light:#c9cdd4;
+      --c-primary:   #4f6ef7;
+      --c-primary-dark:#3b54d4;
+      --c-accent:    #00c9a7;
+      --c-border:    #e5e7eb;
+      --c-gradient-1:#4f6ef7;
+      --c-gradient-2:#7c5cfc;
+      --c-gradient-3:#00c9a7;
+      --font-display: 'Georgia', 'Times New Roman', serif;
+      --font-body: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --radius: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--c-text);
+      background: var(--c-bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Typography ===== */
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.3; }
+    h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
+    p { margin: 0 0 1rem; color: var(--c-text-muted); }
+    strong { color: var(--c-text); }
+
+    a { color: var(--c-primary); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--c-primary-dark); }
+
+    /* ===== Layout ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .row.gtr-150 { gap: 3rem; }
+    .col-4 { flex: 1 1 280px; min-width: 0; }
+    .col-6 { flex: 1 1 400px; min-width: 0; }
+    @media (max-width: 768px) {
+      .row { flex-direction: column; }
+      .col-4, .col-6 { flex: 1 1 auto; }
+      .imp-medium { order: -1; }
+    }
+
+    /* ===== Header ===== */
+    #header {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--c-bg-dark) 0%, var(--c-bg-darker) 50%, #1a1d2e 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+    #header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(79,110,247,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(0,201,167,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(124,92,252,0.08) 0%, transparent 50%);
+    }
+    #header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 25% 35%, rgba(255,255,255,0.03) 1px, transparent 1px),
+        radial-gradient(circle at 65% 60%, rgba(255,255,255,0.04) 1px, transparent 1px),
+        radial-gradient(circle at 40% 75%, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px, 120px 120px, 100px 100px;
+    }
+    #header .inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 2rem;
+    }
+    #header .icon.major {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.15);
+      margin-bottom: 1.5rem;
+      color: var(--c-accent);
+    }
+    #header .icon.major svg { width: 36px; height: 36px; }
+    #header h1 { color: #fff; margin-bottom: 1rem; }
+    #header h1 strong { color: var(--c-accent); }
+    #header p { color: var(--c-text-light); font-size: 1.05rem; max-width: 520px; margin: 0 auto 2rem; }
+
+    /* ===== Buttons ===== */
+    .button {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--c-primary);
+      border: 2px solid var(--c-primary);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .button:hover {
+      background: var(--c-primary-dark);
+      border-color: var(--c-primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79,110,247,0.35);
+    }
+    .button.wide { padding: 0.75rem 2.5rem; }
+    .button.primary { background: var(--c-accent); border-color: var(--c-accent); color: #1a1d2e; }
+    .button.primary:hover { background: #00b392; border-color: #00b392; box-shadow: 0 6px 20px rgba(0,201,167,0.35); }
+
+    /* ===== Sections ===== */
+    section { padding: 5rem 0; }
+    section.main { padding: 6rem 0; }
+    section.main.style1 { background: var(--c-bg); }
+    section.main.style2 {
+      background: var(--c-bg-dark);
+      color: #fff;
+    }
+    section.main.style2 h2 { color: #fff; }
+    section.main.style2 p { color: var(--c-text-light); }
+    section.main.style2 strong { color: #fff; }
+    section.special { text-align: center; }
+
+    header.major { margin-bottom: 2rem; }
+    header.major h2 { margin-bottom: 0.75rem; }
+
+    /* ===== Images ===== */
+    .image.fit {
+      display: block;
+      width: 100%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .image.fit img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .image.fit:hover img { transform: scale(1.03); }
+
+    /* ===== Major Icons Grid ===== */
+    .major-icons {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .major-icons li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .major-icons .icon.major {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .major-icons .icon.major:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .major-icons .icon.major svg { width: 32px; height: 32px; }
+
+    /* Icon color styles */
+    .major-icons .icon.style1 { background: rgba(79,110,247,0.12); color: var(--c-primary); }
+    .major-icons .icon.style2 { background: rgba(0,201,167,0.12); color: var(--c-accent); }
+    .major-icons .icon.style3 { background: rgba(245,158,11,0.12); color: #f59e0b; }
+    .major-icons .icon.style4 { background: rgba(239,68,68,0.12); color: #ef4444; }
+    .major-icons .icon.style5 { background: rgba(139,92,246,0.12); color: #8b5cf6; }
+    .major-icons .icon.style6 { background: rgba(236,72,153,0.12); color: #ec4899; }
+
+    @media (max-width: 768px) {
+      .major-icons { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ===== Actions List ===== */
+    .actions {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .actions.special { justify-content: center; }
+
+    /* ===== Footer ===== */
+    #footer {
+      text-align: center;
+      padding: 3rem 0;
+      background: var(--c-bg-darker);
+      color: var(--c-text-light);
+    }
+    #footer .icons {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+    #footer .icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      color: var(--c-text-light);
+      transition: all 0.25s;
+    }
+    #footer .icons a:hover {
+      background: var(--c-primary);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    #footer .icons svg { width: 20px; height: 20px; }
+    #footer .copyright {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.35);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    #footer .copyright li { display: inline; }
+    #footer .copyright a { color: rgba(255,255,255,0.5); }
+    #footer .copyright a:hover { color: #fff; }
+
+    /* ===== Cards in Section Three ===== */
+    #three .col-4 {
+      background: var(--c-bg);
+      border-radius: var(--radius);
+      padding: 0 0 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+    }
+    #three .col-4:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    #three .col-4 .image.fit {
+      border-radius: var(--radius) var(--radius) 0 0;
+      box-shadow: none;
+      margin-bottom: 1.25rem;
+    }
+    #three .col-4 h3 { padding: 0 1.25rem; margin-bottom: 0.5rem; }
+    #three .col-4 p { padding: 0 1.25rem; font-size: 0.9rem; }
+    #three .col-4 .actions { padding: 0 1.25rem; }
+
+    /* ===== CTA Section ===== */
+    #four .button { margin: 0.25rem; }
+
+    /* ===== Animations ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .is-preload .animate-on-load {
+      opacity: 0;
+    }
+    .animate-on-load.visible {
+      animation: fadeInUp 0.7s ease forwards;
+    }
+    #header .inner {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    /* ===== Scroll indicator ===== */
+    #header .scrolly-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: pulse 2s infinite;
+    }
+    #header .scrolly-indicator svg {
+      width: 28px;
+      height: 28px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ===== Responsive fine-tuning ===== */
+    @media (max-width: 480px) {
+      section { padding: 3rem 0; }
+      section.main { padding: 3.5rem 0; }
+      .button { padding: 0.65rem 1.5rem; font-size: 0.8rem; }
+      #header .inner { padding: 1rem; }
+    }
+  </style>
+</head>
+<body class="is-preload">
+
+  <!-- ===== HEADER ===== -->
+  <section id="header">
+    <div class="inner">
+      <span class="icon solid major">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+          <path d="M20 10a8 8 0 0 0-16 0v2a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H8.1"/>
+          <path d="M16 10a8 8 0 0 1 4 0v2a4 4 0 0 1-4 4h-1a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h.9"/>
+          <circle cx="12" cy="17" r="1"/>
+          <path d="M12 18v4"/>
+        </svg>
+      </span>
+      <h1>Welcome to <strong>SYNAPSE AI</strong><br />
+      从生成数字符号，迈向理解真实世界。</h1>
+      <p>探讨大模型底层的技术演进逻辑，追踪大模型与现实物理碰撞的火花。<br />
+      在这里，我们不聊炒作的泡沫，只聊代码、算法与未来的奇点。</p>
+      <ul class="actions special">
+        <li><a href="#one" class="button scrolly">纵览 AI 技术风向</a></li>
+      </ul>
+    </div>
+    <div class="scrolly-indicator">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14"/>
+        <path d="m19 12-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== SECTION ONE: NSP ===== -->
+  <section id="one" class="main style1">
+    <div class="container">
+      <div class="row gtr-150">
+        <div class="col-6 col-12-medium">
+          <header class="major">
+            <h2>认知升维：全面跨越至<br />
+            Next-State Prediction（NSP）新范式</h2>
+          </header>
+          <p>AI 的竞争焦点正在发生关键转移，行业共识从早期的参数规模扩张（Scaling Law 预训练），逐步演变为对物理规律和时空连续性的理解与建模。</p>
+          <p>AI 正在告别"预测下一个词（Next-Token Prediction）"的数字黑盒，开始通过多模态世界模型去"预测物理世界的下一个状态"。这种因果推理能力的觉醒，让 AI 真正拥有了逻辑与长程规划能力。</p>
+        </div>
+        <div class="col-6 col-12-medium imp-medium">
+          <span class="image fit"><img src="images/pic01.jpg" alt="世界模型神经网络图" /></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION TWO: Six Pillars ===== -->
+  <section id="two" class="main style2">
+    <div class="container">
+      <div class="row gtr-150">
+        <div class="col-6 col-12-medium">
+          <ul class="major-icons">
+            <li><span class="icon solid style1 major" title="具身智能">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+            </span></li>
+            <li><span class="icon solid style2 major" title="多智能体网络">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><line x1="8" y1="7" x2="10" y2="11"/><line x1="16" y1="7" x2="14" y2="11"/><line x1="8" y1="17" x2="10" y2="13"/><line x1="16" y1="17" x2="14" y2="13"/><line x1="7" y1="8" x2="11" y2="10"/><line x1="17" y1="8" x2="13" y2="10"/></svg>
+            </span></li>
+            <li><span class="icon solid style3 major" title="端侧推理优化">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </span></li>
+            <li><span class="icon solid style4 major" title="高质量合成数据">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/></svg>
+            </span></li>
+            <li><span class="icon solid style5 major" title="科学大模型 AI4S">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.53a5 5 0 0 1 4 0V2"/><path d="M8 21h8"/><path d="M12 12v9"/><path d="M6 4.5 4 6"/><path d="M18 4.5 20 6"/></svg>
+            </span></li>
+            <li><span class="icon solid style6 major" title="可解释性攻防">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span></li>
+          </ul>
+        </div>
+        <div class="col-6 col-12-medium">
+          <header class="major">
+            <h2>技术沉淀：重塑数字生态的六大底座</h2>
+          </header>
+          <p><strong>智能形态的实体化与实体社会化：</strong> 多智能体协同协议（如 MCP 协议）的逐步收敛，正在让单体 AI 进化为能够打"团队战"的多智能体系统。</p>
+          <p>同时，伴随着异构全栈开源编译器生态的发展，推理效率正逼向边缘硬件端，我们正在迈向一个"无感交互、端云协同"的万物主动智能时代。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION THREE: Columns ===== -->
+  <section id="three" class="main style1 special">
+    <div class="container">
+      <header class="major">
+        <h2>精选专栏 · AI 趋势前沿视界</h2>
+      </header>
+      <p>专注于高价值的技术落地验证、开源框架魔改以及硬核底层技术评测。</p>
+      <div class="row gtr-150">
+        <div class="col-4 col-12-medium">
+          <span class="image fit"><img src="images/pic02.jpg" alt="Agent 协议" /></span>
+          <h3>Agent 时代的 "TCP/IP" 雏形</h3>
+          <p>解析 Agentic AI 应用编排体系，如何利用标准化通信协议打通多智能体壁垒，构建工业级的自动化自主工作流。</p>
+          <ul class="actions special">
+            <li><a href="#" class="button">阅读专栏文章</a></li>
+          </ul>
+        </div>
+        <div class="col-4 col-12-medium">
+          <span class="image fit"><img src="images/pic03.jpg" alt="具身智能" /></span>
+          <h3>具身智能：人形机器人的量产突围</h3>
+          <p>紧跟软硬件协同进化的主线。拆解运动控制、触觉传感器与多模态感知模型的端到端融合，记录 AI 走出实验室的工业实录。</p>
+          <ul class="actions special">
+            <li><a href="#" class="button">翻阅深度评测</a></li>
+          </ul>
+        </div>
+        <div class="col-4 col-12-medium">
+          <span class="image fit"><img src="images/pic04.jpg" alt="合成数据" /></span>
+          <h3>合成数据：打破"数据枯竭魔咒"</h3>
+          <p>研究基于世界模型模拟生成的合成数据，如何成为降低大模型后训练阶段（RL）成本的核心燃料，探讨修正扩展定律的边界。</p>
+          <ul class="actions special">
+            <li><a href="#" class="button">查看开源项目</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION FOUR: CTA ===== -->
+  <section id="four" class="main style2 special">
+    <div class="container">
+      <header class="major">
+        <h2>订阅「SYNAPSE 周报」与开源代码库</h2>
+      </header>
+      <p>每周五准时推送业内最具干货的算法论文精读、推理加速方案及独立项目复盘。</p>
+      <ul class="actions special">
+        <li><a href="#" class="button wide primary">邮件订阅（免费）</a></li>
+        <li><a href="#" class="button wide">前往 GitHub 贡献代码</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <section id="footer">
+    <ul class="icons">
+      <li><a href="#" class="icon brands alt" aria-label="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+      </a></li>
+      <li><a href="#" class="icon brands alt" aria-label="Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+      </a></li>
+      <li><a href="#" class="icon brands alt" aria-label="Discord">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M7.5 7.5c3.5-1 5.5-1 9 0"/><path d="M7 16.5c3.5 1 6.5 1 10 0"/><path d="M15.5 17c0 1-1.5 3-3.5 3s-3.5-2-3.5-3"/><path d="M19.5 5.5A15.5 15.5 0 0 0 12 4a15.5 15.5 0 0 0-7.5 1.5C3.2 6.5 2 9.5 2 13c0 3.5 1.2 6.5 2.5 7.5A15.5 15.5 0 0 0 12 22a15.5 15.5 0 0 0 7.5-1.5c1.3-1 2.5-4 2.5-7.5 0-3.5-1.2-6.5-2.5-7.5z"/></svg>
+      </a></li>
+      <li><a href="#" class="icon solid alt" aria-label="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a></li>
+    </ul>
+    <ul class="copyright">
+      <li>&copy; SYNAPSE AI 2026. Built by Geeks for Geeks.</li>
+      <li>Design based on <a href="http://html5up.net">HTML5 UP</a>. Hosted on Vercel.</li>
+    </ul>
+  </section>
+
+  <script>
+    (function() {
+      // Remove preload class after load
+      document.body.classList.remove('is-preload');
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a.scrolly, a[href^="#"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          var href = this.getAttribute('href');
+          if (!href || href === '#') return;
+          if (href.charAt(0) !== '#') return;
+          var target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Intersection Observer for scroll animations
+      var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe sections for animation
+      document.querySelectorAll('section.main, #three .col-4').forEach(function(el) {
+        el.classList.add('animate-on-load');
+        observer.observe(el);
+      });
+
+      // Handle visibility change for animations
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) return;
+        // Re-trigger animations on return
+      });
+
+      // Button click handlers - provide real feedback
+      document.querySelectorAll('.button').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          var text = this.textContent.trim();
+          if (text.includes('邮件订阅') || text.includes('订阅')) {
+            e.preventDefault();
+            var email = prompt('请输入您的邮箱地址以订阅 SYNAPSE 周报：');
+            if (email && email.includes('@')) {
+              alert('订阅成功！感谢关注 SYNAPSE AI。');
+            } else if (email) {
+              alert('请输入有效的邮箱地址。');
+            }
+          } else if (text.includes('GitHub')) {
+            e.preventDefault();
+            window.open('https://github.com', '_blank');
+          } else if (text.includes('阅读') || text.includes('翻阅') || text.includes('查看')) {
+            e.preventDefault();
+            var section = this.closest('.col-4');
+            var title = section ? section.querySelector('h3').textContent : '专栏';
+            alert('即将跳转到「' + title + '」专栏详情页。');
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
