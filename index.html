@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Watch — 独立AI与科技观察</title>
+<meta name="description" content="关注本地AI、大模型前沿变革与硬核科技硬件指南。">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <div class="topnav-mark">GLOBAL WATCH</div>
+    <nav class="topnav-links">
+      <a href="index.html">首页</a>
+      <a href="#about">关于</a>
+      <a href="#contact">联系</a>
+    </nav>
+  </div>
+</header>
+
+<div class="shell">
+
+  <aside>
+    <img class="brand-mark" src="assets/img/logo.svg" alt="Global Watch logo">
+    <h1 class="brand-title">Global Watch</h1>
+    <p class="brand-tag">用凝练的语言，记录真正有价值的科技前沿与行业洞察。</p>
+    <hr class="side-divider">
+
+    <a class="side-post" href="文章/local-ai-vram-guide/index.html">
+      <img src="文章/local-ai-vram-guide/cover.jpg" alt="显存多少才够用">
+      <div class="side-post-body">
+        <div class="side-post-text">
+          <p class="side-post-title">本地跑大模型、ComfyUI画图与视频生成，显存多少才够用？</p>
+          <p class="side-post-date">2026年7月9日</p>
+        </div>
+        <div class="avatar"></div>
+      </div>
+    </a>  
+
+    <a class="side-post" href="文章/sora-dead-seedance/index.html">
+      <img src="文章/sora-dead-seedance/pic-1.jpg" alt="Seedance 2.5分析">
+      <div class="side-post-body">
+        <div class="side-post-text">
+          <p class="side-post-title">Sora死了，可灵估值缩水20亿，Seedance 2.5凭什么让企业买单？</p>
+          <p class="side-post-date">2026年7月</p>
+        </div>
+        <div class="avatar"></div>
+      </div>
+    </a>
+
+    <a class="side-post" href="文章/ai-news-july-week1/index.html">
+      <img src="文章/ai-news-july-week1/pic-1.jpg" alt="7月第一周王炸">
+      <div class="side-post-body">
+        <div class="side-post-text">
+          <p class="side-post-title">Fable 5骂用户"太蠢"、GPT-5.6偷跑、阿里封杀Claude</p>
+          <p class="side-post-date">2026年7月</p>
+        </div>
+        <div class="avatar"></div>
+      </div>
+    </a>
+
+    <a class="side-post" href="文章/global-llm-ranking/index.html">
+      <img src="文章/global-llm-ranking/ranking-1.jpg" alt="大模型真实差距">
+      <div class="side-post-body">
+        <div class="side-post-text">
+          <p class="side-post-title">全球AI大模型最新排行榜更新，中美真实差距不在分数上</p>
+          <p class="side-post-date">2026年7月</p>
+        </div>
+        <div class="avatar"></div>
+      </div>
+    </a>
+
+    <a class="side-post" href="文章/silicon-valley-llm/index.html">
+      <img src="文章/silicon-valley-llm/data-1.jpg" alt="硅谷创业公司叛变">
+      <div class="side-post-body">
+        <div class="side-post-text">
+          <p class="side-post-title">一年翻十倍：中国AI模型是怎么让硅谷创业公司"叛变"的？</p>
+          <p class="side-post-date">2026年7月</p>
+        </div>
+        <div class="avatar"></div>
+      </div>
+    </a>    
+
+    <a class="side-post" href="文章/llm-spec-explainer/index.html">
+      <img src="文章/llm-spec-explainer/concept-1.jpg" alt="AI模型术语科普">
+      <div class="side-post-body">
+        <div class="side-post-text">
+          <p class="side-post-title">别只看8B和“满血版”：AI模型到底有什么区别？</p>
+          <p class="side-post-date">2026年7月</p>
+        </div>
+        <div class="avatar"></div>
+      </div>
+    </a>
+
+  </aside>
+
+  <main>
+  <div id="post-list">
+
+    <article class="post-card" data-date="2026-07-09">
+      <div class="post-card-head">
+        <div class="post-card-head-main">
+          <h2 class="card-title"><a href="文章/local-ai-vram-guide/index.html">本地跑大模型、ComfyUI画图与视频生成，显存多少才够用？16G 到 48G 体验全拆解</a></h2>
+          <p class="card-excerpt-line">24G 显存是当下本地 AI 创作的“舒适及格线” [cite: 1]</p>
+        </div>
+        <div class="post-card-head-meta">
+          <p class="card-date">2026年7月9日</p>
+          <div class="card-author"><span>硬件评测组</span><div class="avatar"></div></div>
+        </div>
+      </div>
+      <img class="post-card-img" src="文章/local-ai-vram-guide/cover.jpg" alt="显存指南封面图">
+      <div class="post-card-body">
+        <p>今天和大家聊聊本地AI [cite: 1]。把大家最关心的“显存”问题一次性盘清楚 [cite: 1]。先抛出核心结论：24G 显存是当下本地 AI 创作的“舒适及格线”，能用、能干活，但谈不上爽；想要流畅无阻，32G 是门槛；而到了 48G，那才是真正的“爽到飞起” [cite: 1]。</p>
+      </div>
+      <div class="post-card-foot">
+        <a class="btn" href="文章/local-ai-vram-guide/index.html">阅读全文</a>
+        <div class="tag-stats"><a href="文章/local-ai-vram-guide/index.html">AI 硬件</a><span>5 分钟阅读</span></div>
+      </div>
+    </article>
+
+    <article class="post-card" data-date="2026-07-06">
+      <div class="post-card-head">
+        <div class="post-card-head-main">
+          <h2 class="card-title"><a href="文章/sora-dead-seedance/index.html">Sora死了，可灵估值缩水20亿，Seedance 2.5凭什么让110万企业买单？</a></h2>
+          <p class="card-excerpt-line">AI视频赛道已经从“谁画得好”进入了“谁能让更多人画得好” [cite: 4]</p>
+        </div>
+        <div class="post-card-head-meta">
+          <p class="card-date">2026年7月</p>
+          <div class="card-author"><span>行业深度</span><div class="avatar"></div></div>
+        </div>
+      </div>
+      <img class="post-card-img" src="文章/sora-dead-seedance/pic-1.jpg" alt="Seedance 2.5 封面">
+      <div class="post-card-body">
+        <p>上个月，OpenAI悄悄关停了Sora [cite: 4]。技术很强，但产品等于零 [cite: 4]。而火山引擎甩出的Seedance 2.5正在重塑B端全模态生产力生态 [cite: 4]。AI视频终于从“做预告片”进化到了“讲故事”的历史节点 [cite: 4]。</p>
+      </div>
+      <div class="post-card-foot">
+        <a class="btn" href="文章/sora-dead-seedance/index.html">阅读全文</a>
+        <div class="tag-stats"><a href="文章/sora-dead-seedance/index.html">AI 视频</a><span>4 分钟阅读</span></div>
+      </div>
+    </article>
+
+    <article class="post-card" data-date="2026-07-04">
+      <div class="post-card-head">
+        <div class="post-card-head-main">
+          <h2 class="card-title"><a href="文章/ai-news-july-week1/index.html">Fable 5骂用户"太蠢"、GPT-5.6偷跑、阿里封杀Claude——7月第一周，AI圈一天一个王炸</a></h2>
+          <p class="card-excerpt-line">AI模型的竞争，已经进入了“你的工具链还安不安全”的新阶段 [cite: 5]</p>
+        </div>
+        <div class="post-card-head-meta">
+          <p class="card-date">2026年7月</p>
+          <div class="card-author"><span>大事件观察</span><div class="avatar"></div></div>
+        </div>
+      </div>
+      <img class="post-card-img" src="文章/ai-news-july-week1/pic-1.jpg" alt="7月王炸封面">
+      <div class="post-card-body">
+        <p>Claude Fable 5回归却被爆出隐藏日志降级与推理内心戏泄露；OpenAI精准卡点偷跑新模型代码；阿里全集团下令卸载Claude Code [cite: 5]。AI工具供应链正在经历重大的信任与地缘安全迁徙 [cite: 5]。</p>
+      </div>
+      <div class="post-card-foot">
+        <a class="btn" href="文章/ai-news-july-week1/index.html">阅读全文</a>
+        <div class="tag-stats"><a href="文章/ai-news-july-week1/index.html">行业动态</a><span>6 分钟阅读</span></div>
+      </div>
+    </article>
+
+    <article class="post-card" data-date="2026-07-03">
+      <div class="post-card-head">
+        <div class="post-card-head-main">
+          <h2 class="card-title"><a href="文章/global-llm-ranking/index.html">全球AI大模型最新排行榜更新，中美AI大模型的真实差距，不在分数上</a></h2>
+          <p class="card-excerpt-line">美国在做“AI 能想到的最难的事”，中国在做“AI 能用到的最多的地方” [cite: 9]</p>
+        </div>
+        <div class="post-card-head-meta">
+          <p class="card-date">2026年7月</p>
+          <div class="card-author"><span>数据分析组</span><div class="avatar"></div></div>
+        </div>
+      </div>
+      <img class="post-card-img" src="文章/global-llm-ranking/ranking-1.jpg" alt="大模型排行榜封面">
+      <div class="post-card-body">
+        <p>最新大模型天梯榜释出，Claude Fable 5 以高分登顶 [cite: 7]。然而拆开中美两边的数据，真正的战场早已不局限在评测跑分上，两边的商业路线、每秒 Token 推理速度以及企业级调用开销呈现了截然不同的演进方向 [cite: 7, 8]。</p>
+      </div>
+      <div class="post-card-foot">
+        <a class="btn" href="文章/global-llm-ranking/index.html">阅读全文</a>
+        <div class="tag-stats"><a href="文章/global-llm-ranking/index.html">数据测评</a><span>5 分钟阅读</span></div>
+      </div>
+    </article>
+
+    <article class="post-card" data-date="2026-07-02">
+      <div class="post-card-head">
+        <div class="post-card-head-main">
+          <h2 class="card-title"><a href="文章/silicon-valley-llm/index.html">一年翻十倍：中国AI模型是怎么让硅谷创业公司"叛变"的？</a></h2>
+          <p class="card-excerpt-line">便宜 + 开源 + 跑得快三招组合拳，悄悄成了全球开发者的基础设施 [cite: 10]</p>
+        </div>
+        <div class="post-card-head-meta">
+          <p class="card-date">2026年7月</p>
+          <div class="card-author"><span>跨境技术组</span><div class="avatar"></div></div>
+        </div>
+      </div>
+      <img class="post-card-img" src="文章/silicon-valley-llm/data-1.jpg" alt="硅谷开发者封面图">
+      <div class="post-card-body">
+        <p>7月AI模型平台 OpenRouter 的一组出海数据震撼了硅谷：美国创业公司调用中国 AI 模型的比例在一年内疯狂翻了十倍 [cite: 10]。这不是卖一次技术，而是商业逻辑和高昂的算力账单逼着开发者正在拿脚投票 [cite: 10]。</p>
+      </div>
+      <div class="post-card-foot">
+        <a class="btn" href="文章/silicon-valley-llm/index.html">阅读全文</a>
+        <div class="tag-stats"><a href="文章/silicon-valley-llm/index.html">出海纵深</a><span>4 分钟阅读</span></div>
+      </div>
+    </article>
+
+    <article class="post-card" data-date="2026-06-30">
+      <div class="post-card-head">
+        <div class="post-card-head-main">
+          <h2 class="card-title"><a href="文章/llm-spec-explainer/index.html">别只看8B和“满血版”：AI模型到底有什么区别？</a></h2>
+          <p class="card-excerpt-line">从参数、向量到本地部署，大白话一篇看懂AI模型背后的硬核逻辑 [cite: 11]</p>
+        </div>
+        <div class="post-card-head-meta">
+          <p class="card-date">2026年7月</p>
+          <div class="card-author"><span>技术科普组</span><div class="avatar"></div></div>
+        </div>
+      </div>
+      <img class="post-card-img" src="文章/llm-spec-explainer/concept-1.jpg" alt="AI模型术语封面图">
+      <div class="post-card-body">
+        <p>第一次看到 8B、128K、满血版这些专业词汇难免一头雾水 [cite: 11]。其实它们都在回答几个非常实际的诉求：这个 AI 能力边界在哪里？你的个人电脑配置究竟带不带得动？它又最适合拿来干什么 [cite: 11]？</p>
+      </div>
+      <div class="post-card-foot">
+        <a class="btn" href="文章/llm-spec-explainer/index.html">阅读全文</a>
+        <div class="tag-stats"><a href="文章/llm-spec-explainer/index.html">AI 科普</a><span>3 分钟阅读</span></div>
+      </div>
+    </article>
+
+  </div>
+
+  <nav class="pagination" id="pagination"></nav>
+  </main>
+</div>
+
+<script>
+// 动态控制列表显示与智能排序的分页逻辑
+(function () {
+  var pageSize = 3; // 每页显示3篇
+  var postContainer = document.getElementById('post-list');
+  var posts = Array.prototype.slice.call(document.querySelectorAll('#post-list .post-card'));
+  
+  // 🌟 核心升级：按 data-date 属性将所有文章重新进行从新到旧的降序排序
+  posts.sort(function(a, b) {
+    var dateA = new Date(a.getAttribute('data-date') || 0);
+    var dateB = new Date(b.getAttribute('data-date') || 0);
+    return dateB - dateA;
+  });
+
+  // 🌟 将排序好的 DOM 节点重新塞回页面
+  posts.forEach(function(post) {
+    postContainer.appendChild(post);
+  });
+
+  var totalPages = Math.max(1, Math.ceil(posts.length / pageSize));
+  var pagination = document.getElementById('pagination');
+  var currentPage = 1;
+
+  function render(page) {
+    currentPage = page;
+    var start = (page - 1) * pageSize;
+    posts.forEach(function (post, i) {
+      post.style.display = (i >= start && i < start + pageSize) ? '' : 'none';
+    });
+    renderPagination();
+  }
+
+  function renderPagination() {
+    pagination.innerHTML = '';
+    var prev = document.createElement('button');
+    prev.className = 'page-btn';
+    prev.textContent = '← 上一页';
+    prev.disabled = currentPage === 1;
+    prev.addEventListener('click', function () { render(currentPage - 1); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    pagination.appendChild(prev);
+
+    for (var p = 1; p <= totalPages; p++) {
+      (function (p) {
+        var btn = document.createElement('button');
+        btn.className = 'page-btn' + (p === currentPage ? ' active' : '');
+        btn.textContent = p;
+        btn.addEventListener('click', function () { render(p); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        pagination.appendChild(btn);
+      })(p);
+    }
+
+    var next = document.createElement('button');
+    next.className = 'page-btn';
+    next.textContent = '下一页 →';
+    next.disabled = currentPage === totalPages;
+    next.addEventListener('click', function () { render(currentPage + 1); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    pagination.appendChild(next);
+  }
+  render(1);
+})();
+</script>
+
+<footer class="site-footer">
+  <span>© 2026 Global Watch</span>
+  <span>独立硬核科技视界</span>
+</footer>
+
+</body>
+</html>
