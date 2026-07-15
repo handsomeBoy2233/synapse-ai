@@ -18,21 +18,32 @@
 // 🌟 1. 历史遗留大清理（强力卸载区）
 // =====================================================================
 var CONFIG_REMOVE_LIST = [
+  "juicyads.com", 
+  "meta[name='juicyads-site-verification']",
 ];
 
 // =====================================================================
 // 🌟 2. 全局无固定位置广告/验证配置区
 // =====================================================================
 // 【HEAD 区域】
+// var CONFIG_HEAD = `
+//   <meta name="juicyads-site-verification" content="2f41ff8f5c89ef911b7cdf02a9f783bd">
+// `;
+
+// // 【BODY 全局弹窗】：放你的 PopUnders 弹窗广告
+// var CONFIG_BODY_GLOBAL = `
+//   <script type="text/javascript" src="https://js.juicyads.com/jp.php?c=4474v203r284u4r2p2b4338424&u=https%3A%2F%2Fwww.yymakes.online%2F"></script>
+// `;
+
+
 var CONFIG_HEAD = `
-  <meta name="juicyads-site-verification" content="2f41ff8f5c89ef911b7cdf02a9f783bd">
+  <script src="https://pl30378604.effectivecpmnetwork.com/6e/de/a5/6edea544c2db7da807adc70325f9b7dd.js"></script>
+
 `;
 
 // 【BODY 全局弹窗】：放你的 PopUnders 弹窗广告
 var CONFIG_BODY_GLOBAL = `
-  <script type="text/javascript" src="https://js.juicyads.com/jp.php?c=4474v203r284u4r2p2b4338424&u=https%3A%2F%2Fwww.yymakes.online%2F"></script>
 `;
-
 
 // =====================================================================
 // 🌟 3. 核心新增：左右两侧空白区域“对联/摩天大楼”广告位（全自动排布）
@@ -41,54 +52,12 @@ var CONFIG_BODY_GLOBAL = `
 
 // 【左侧空白区广告】
 var CONFIG_SIDE_LEFT = `
-  <div style="margin-bottom: 20px;">
-    <script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></script>
-    <ins id="1122173" data-width="300" data-height="250"></ins>
-    <script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1122173});</script>
-    </div>
 
-  <div style="margin-bottom: 20px;">
-    <script type="text/javascript" data-id="juicyads-native-ads" data-ad-zone="1122172" data-targets="a" src="https://js.juicyads.com/juicyads.native-ads.min.js"></script>
-    </div>
-
-    <div style="margin-bottom: 20px;">
-    <script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></script>
-    <ins id="1122176" data-width="258" data-height="46"></ins>
-    <script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1122176});</script>
-    </div>
-
-    <div style="margin-bottom: 20px;">
-    <script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></script>
-    <ins id="1122177" data-width="178" data-height="18"></ins>
-    <script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1122177});</script>
-    </div>
-    
-    <div style="margin-bottom: 20px;">
-    <script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></script>
-    <ins id="1122178" data-width="133" data-height="139"></ins>
-    <script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1122178});</script>
-    </div>
 `;
 
 // 【右侧空白区广告】
 var CONFIG_SIDE_RIGHT = `
-    <div style="margin-bottom: 20px;">
-    <script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></script>
-    <ins id="1122174" data-width="632" data-height="190"></ins>
-    <script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1122174});</script>
-    </div>
 
-        <div style="margin-bottom: 20px;">
-    <script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></script>
-    <ins id="1122175" data-width="300" data-height="100"></ins>
-    <script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1122175});</script>
-    </div>
-
-    <div style="margin-bottom: 20px;">
-    <script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></script>
-    <ins id="1122181" data-width="468" data-height="60"></ins>
-    <script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1122181});</script>
-    </div>
 `;
 
 
