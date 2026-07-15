@@ -43,6 +43,7 @@ var CONFIG_HEAD = `
 
 // 【BODY 全局弹窗】：放你的 PopUnders 弹窗广告
 var CONFIG_BODY_GLOBAL = `
+  <script src="https://pl30378793.effectivecpmnetwork.com/59/c8/f2/59c8f22042c48d04b27fbbf519169f41.js"></script>
 `;
 
 // =====================================================================
@@ -67,6 +68,17 @@ var CONFIG_SIDE_LEFT = `
 
 // 【右侧空白区广告】
 var CONFIG_SIDE_RIGHT = `
+<script>
+  atOptions = {
+    'key' : '0cb730a9498ef0c060693993baa0e424',
+    'format' : 'iframe',
+    'height' : 600,
+    'width' : 160,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/0cb730a9498ef0c060693993baa0e424/invoke.js"></script>
+
 `;
 
 
