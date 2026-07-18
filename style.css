@@ -1095,7 +1095,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* Hide ads on smaller screens to prevent content overlap */
-@media (max-width: 1720px) {
+@media (max-width: 1400px) {
     .ad-banner-left,
     .ad-banner-right {
         display: none !important;
