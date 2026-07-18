@@ -598,9 +598,18 @@ a {
     letter-spacing: 0.05em;
 }
 
-.recipe-card-date {
-    font-size: 0.72rem;
-    color: var(--text-muted);
+.recipe-card-rating {
+    font-size: 0.82rem;
+    color: #E67E22; /* Warm amber/terracotta */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 600;
+}
+
+.recipe-card-rating i {
+    color: #F1C40F; /* Golden yellow star */
+    font-size: 0.75rem;
 }
 
 /* ==========================================================================
@@ -1061,5 +1070,34 @@ body::-webkit-scrollbar-thumb:hover {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* Floating Ad Banners */
+.ad-banner-left {
+    position: fixed;
+    top: 150px;
+    left: 20px;
+    width: 160px;
+    height: 600px;
+    z-index: 1000;
+    display: block;
+}
+
+.ad-banner-right {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    width: 160px;
+    height: 300px;
+    z-index: 1000;
+    display: block;
+}
+
+/* Hide ads on smaller screens to prevent content overlap */
+@media (max-width: 1720px) {
+    .ad-banner-left,
+    .ad-banner-right {
+        display: none !important;
     }
 }
