@@ -1,394 +1,203 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="juicyads-site-verification" content="2f41ff8f5c89ef911b7cdf02a9f783bd">
-
-
-<title>Global Watch — 独立AI与科技观察</title>
-<meta name="description" content="关注本地AI、大模型前沿变革与硬核科技硬件指南。">
-<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Culinary Atelier | Handcrafted Step-by-Step Cooking Guides</title>
+    <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Clean UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header class="topnav">
-  <div class="topnav-inner">
-    <div class="topnav-mark">GLOBAL WATCH</div>
-    <nav class="topnav-links">
-      <a href="index.html">首页</a>
-      <a href="#about">关于</a>
-      <a href="#contact">联系</a>
-    </nav>
-  </div>
-</header>
-
-<div class="shell">
-<!-- JuicyAds PopUnders v3 Start -->
-<script type="text/javascript" src="https://js.juicyads.com/jp.php?c=4474v203r284u4r2p2b4338424&u=https%3A%2F%2Fwww.juicyads.rocks"></script>
-<!-- JuicyAds PopUnders v3 End -->
-  <aside>
-    <img class="brand-mark" src="assets/img/logo.svg" alt="Global Watch logo">
-    <h1 class="brand-title">Global Watch</h1>
-    <p class="brand-tag">用凝练的语言，记录真正有价值的科技前沿与行业洞察。</p>
-    <hr class="side-divider">
-
-    <a class="side-post" href="posts/apple-vs-openai-dispute/index.html">
-      <img src="posts/apple-vs-openai-dispute/pic-1.jpg" alt="苹果起诉OpenAI">
-      <div class="side-post-body">
-        <div class="side-post-text">
-          <p class="side-post-title">IPO前夜致命狙击：苹果起诉OpenAI窃密</p>
-          <p class="side-post-date">2026年7月14日</p>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <a href="#/" class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-spoon"></i>
+                </div>
+                <span>The Culinary <strong>Atelier</strong></span>
+            </a>
+            
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="recipe-search" placeholder="Find recipes, ingredients, techniques...">
+                <button id="clear-search" class="clear-btn" style="display: none;">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
         </div>
-        <div class="avatar"></div>
-      </div>
-    </a>
+    </header>
 
-    <a class="side-post" href="posts/grok-45-vs-opus-48/index.html">
-      <img src="posts/grok-45-vs-opus-48/pic-1.jpg" alt="Grok 4.5">
-      <div class="side-post-body">
-        <div class="side-post-text">
-          <p class="side-post-title">Grok 4.5 叫板Opus 4.8：半价快4倍</p>
-          <p class="side-post-date">2026年7月11日</p>
+    <!-- Main Content Area -->
+    <main class="app-main">
+        
+        <!-- HOME PAGE VIEW -->
+        <section id="home-view" class="view-section active">
+            <!-- Hero Banner -->
+            <div class="hero-section">
+                <div class="hero-grid-container">
+                    <div class="hero-content">
+                        <span class="hero-subtitle"><i class="fa-solid fa-sparkles"></i> From Our Kitchen to Yours</span>
+                        <h1 class="hero-title">Craft delicious, home-cooked memories.</h1>
+                        <p class="hero-description">Discover chef-tested recipes, detailed video tutorials, and culinary secrets designed to inspire your everyday table.</p>
+                        
+                        <div class="stats-badges">
+                            <span class="stat-badge"><i class="fa-solid fa-circle-play"></i> <span id="stat-video-count">208</span> Guides</span>
+                            <span class="stat-badge"><i class="fa-solid fa-mortar-pestle"></i> <span id="stat-category-count">11</span> Taste Profiles</span>
+                            <span class="stat-badge"><i class="fa-solid fa-award"></i> 100% Chef Approved</span>
+                        </div>
+                    </div>
+                    <div class="hero-image-wrapper">
+                        <img src="hero_banner.jpg" alt="Culinary Atelier Kitchen" class="hero-banner-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two-Column Editorial Layout -->
+            <div class="home-layout-container">
+                <!-- Left Sidebar: Collections Menu & Chef Card -->
+                <aside class="sidebar-panel">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Explore Collections</h3>
+                        <nav class="categories-sidebar" id="categories-sidebar-container">
+                            <!-- Dynamic sidebar category navigation pills -->
+                        </nav>
+                    </div>
+                    
+                    <div class="sidebar-section chef-quote-card">
+                        <div class="chef-quote-icon">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <p class="chef-quote-text">"Cooking is a canvas where every ingredient is a brushstroke. Focus on techniques, trust your palate, and always season with intention."</p>
+                        <div class="chef-quote-author">— Chef's Atelier Journal</div>
+                    </div>
+                </aside>
+
+                <!-- Right Area: Results Grid & Pagination -->
+                <div class="grid-content-panel">
+                    <!-- Active Filters Info & Reset -->
+                    <div class="filter-status-bar" id="filter-status" style="display: none;">
+                        <span class="filter-info-text">Showing results for: <strong id="current-filter-name">All</strong></span>
+                        <button class="reset-filter-btn" id="reset-filters-btn">Clear Filters <i class="fa-solid fa-rotate-left"></i></button>
+                    </div>
+
+                    <!-- Recipe Grid Container -->
+                    <div class="recipe-grid-section">
+                        <div class="recipe-grid" id="recipe-grid">
+                            <!-- Dynamic recipe cards -->
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="pagination-wrapper" id="pagination-wrapper" style="display: none;">
+                            <div class="pagination-info" id="pagination-info">Showing 1-24 of 208 recipes</div>
+                            <div class="pagination-buttons" id="pagination-buttons">
+                                <!-- Dynamic page buttons -->
+                            </div>
+                        </div>
+
+                        <!-- No Results State -->
+                        <div class="no-results" id="no-results-state" style="display: none;">
+                            <div class="no-results-icon">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                            <h3>No Recipes Found</h3>
+                            <p>We couldn't find any recipes matching your query. Try searching for something else or clearing the active filters.</p>
+                            <button class="btn btn-primary" id="no-results-clear-btn">Browse All Collections</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECIPE DETAIL VIEW -->
+        <section id="detail-view" class="view-section">
+            <div class="detail-container">
+                <!-- Back Link / Breadcrumb -->
+                <div class="breadcrumb-nav">
+                    <a href="#/" class="back-link"><i class="fa-solid fa-arrow-left-long"></i> Back to Collections</a>
+                </div>
+
+                <!-- Video and Player Section -->
+                <div class="recipe-video-player-container">
+                    <div class="video-ratio-wrapper">
+                        <!-- Dynamic iframe video player -->
+                        <div id="video-player-target"></div>
+                    </div>
+                </div>
+
+                <!-- Recipe Details Card -->
+                <div class="recipe-meta-card">
+                    <div class="recipe-meta-header">
+                        <h2 class="recipe-detail-title" id="detail-title">Recipe Title</h2>
+                        <div class="recipe-detail-subtitle" id="detail-chinese-title">中文名称</div>
+                        
+                        <div class="recipe-meta-meta">
+                            <span class="recipe-detail-category" id="detail-category-badge">Category</span>
+                            <span class="recipe-detail-date"><i class="fa-solid fa-calendar-day"></i> Published: <span id="detail-upload-date">2026-04-26</span></span>
+                        </div>
+                    </div>
+
+                    <div class="recipe-meta-actions">
+                        <a href="#" target="_blank" id="external-video-link" class="btn btn-primary">
+                            <i class="fa-solid fa-play"></i> Watch on Video Host
+                        </a>
+                        <button id="copy-video-link" class="btn btn-secondary">
+                            <i class="fa-solid fa-share-nodes"></i> Share Recipe
+                        </button>
+                    </div>
+
+                    <hr class="divider">
+
+                    <!-- Tags section -->
+                    <div class="recipe-tags-section">
+                        <h4>Tags & Ingredients</h4>
+                        <div class="detail-tags-container" id="detail-tags">
+                            <!-- Dynamic tags -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Videos Section -->
+                <div class="related-section">
+                    <h3 class="related-heading">From the same collection</h3>
+                    <div class="recipe-grid" id="related-grid">
+                        <!-- Dynamic related cards -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#/" class="footer-logo">
+                    <i class="fa-solid fa-spoon"></i> The Culinary Atelier
+                </a>
+                <p class="footer-description">A curated archive of chef-tested guides, delicate stews, baking foundations, and traditional Chinese recipes, meticulously translated and organized for the modern kitchen.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Culinary Atelier. Crafting culinary confidence daily.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="avatar"></div>
-      </div>
-    </a>
+    </footer>
 
-    <a class="side-post" href="posts/local-ai-vram-guide/index.html">
-      <img src="posts/local-ai-vram-guide/cover.jpg" alt="显存多少才够用">
-      <div class="side-post-body">
-        <div class="side-post-text">
-          <p class="side-post-title">本地跑大模型、ComfyUI画图与视频生成，显存多少才够用？</p>
-          <p class="side-post-date">2026年7月9日</p>
-        </div>
-        <div class="avatar"></div>
-      </div>
-    </a>  
-
-    <a class="side-post" href="posts/sora-dead-seedance/index.html">
-      <img src="posts/sora-dead-seedance/pic-1.jpg" alt="Seedance 2.5分析">
-      <div class="side-post-body">
-        <div class="side-post-text">
-          <p class="side-post-title">Sora死了，可灵估值缩水20亿，Seedance 2.5凭什么让企业买单？</p>
-          <p class="side-post-date">2026年7月</p>
-        </div>
-        <div class="avatar"></div>
-      </div>
-    </a>
-
-    <a class="side-post" href="posts/ai-news-july-week1/index.html">
-      <img src="posts/ai-news-july-week1/pic-1.jpg" alt="7月第一周王炸">
-      <div class="side-post-body">
-        <div class="side-post-text">
-          <p class="side-post-title">Fable 5骂用户"太蠢"、GPT-5.6偷跑、阿里封杀Claude</p>
-          <p class="side-post-date">2026年7月</p>
-        </div>
-        <div class="avatar"></div>
-      </div>
-    </a>
-
-    <a class="side-post" href="posts/global-llm-ranking/index.html">
-      <img src="posts/global-llm-ranking/ranking-1.jpg" alt="大模型真实差距">
-      <div class="side-post-body">
-        <div class="side-post-text">
-          <p class="side-post-title">全球AI大模型最新排行榜更新，中美真实差距不在分数上</p>
-          <p class="side-post-date">2026年7月</p>
-        </div>
-        <div class="avatar"></div>
-      </div>
-    </a>
-
-    <a class="side-post" href="posts/silicon-valley-llm/index.html">
-      <img src="posts/silicon-valley-llm/data-1.jpg" alt="硅谷创业公司叛变">
-      <div class="side-post-body">
-        <div class="side-post-text">
-          <p class="side-post-title">一年翻十倍：中国AI模型是怎么让硅谷创业公司"叛变"的？</p>
-          <p class="side-post-date">2026年7月</p>
-        </div>
-        <div class="avatar"></div>
-      </div>
-    </a>    
-
-    <a class="side-post" href="posts/llm-spec-explainer/index.html">
-      <img src="posts/llm-spec-explainer/concept-1.jpg" alt="AI模型术语科普">
-      <div class="side-post-body">
-        <div class="side-post-text">
-          <p class="side-post-title">别只看8B和“满血版”：AI模型到底有什么区别？</p>
-          <p class="side-post-date">2026年7月</p>
-        </div>
-        <div class="avatar"></div>
-      </div>
-    </a>
-
-  </aside>
-
-  <main>
-  <div id="post-list">
-
-    <article class="post-card" data-date="2026-07-14">
-      <div class="post-card-head">
-        <div class="post-card-head-main">
-          <h2 class="card-title"><a href="posts/apple-vs-openai-dispute/index.html">IPO前夜的致命狙击：苹果起诉OpenAI窃密，撕开消费级AI硬件的终极野心</a></h2>
-          <p class="card-excerpt-line">当纯软件的 AI 巨头渴望物理外壳，传统的硬件霸主感到了威胁</p>
-        </div>
-        <div class="post-card-head-meta">
-          <p class="card-date">2026年7月14日</p>
-          <div class="card-author"><span>行业观察</span><div class="avatar"></div></div>
-        </div>
-      </div>
-      <img class="post-card-img" src="posts/apple-vs-openai-dispute/pic-1.jpg" alt="苹果起诉OpenAI 封面">
-      <div class="post-card-body">
-        <p>美国苹果公司正式起诉 OpenAI 及其两名前员工，指控其系统性窃取苹果商业机密以加速布局消费级硬件。这起诉讼不仅撕开了 OpenAI 试图重新定义后手机时代终端的野心，更精准卡点在其秘密提交 IPO 招股书的关键时刻，博弈火药味十足。</p>
-      </div>
-      <div class="post-card-foot">
-        <a class="btn" href="posts/apple-vs-openai-dispute/index.html">阅读全文</a>
-        <div class="tag-stats"><a href="posts/apple-vs-openai-dispute/index.html">巨头博弈</a><span>5 分钟阅读</span></div>
-      </div>
-    </article>
-
-
-    <article class="post-card" data-date="2026-07-11">
-      <div class="post-card-head">
-        <div class="post-card-head-main">
-          <h2 class="card-title"><a href="posts/grok-45-vs-opus-48/index.html">Grok 4.5 叫板Opus 4.8：半价快4倍，文末领体验额度</a></h2>
-          <p class="card-excerpt-line">Opus 级的能力、一半的价钱、好几倍的速度和省钱[]</p>
-        </div>
-        <div class="post-card-head-meta">
-          <p class="card-date">2026年7月11日</p>
-          <div class="card-author"><span>前沿观察</span><div class="avatar"></div></div>
-        </div>
-      </div>
-      <img class="post-card-img" src="posts/grok-45-vs-opus-48/pic-1.jpg" alt="Grok 4.5 评测封面">
-      <div class="post-card-body">
-        <p>7 月 8 日 SpaceXAI 联手 Cursor 甩出了 Grok 4.5[]。「聪明」和「快」以前只能二选一，Grok 4.5 却打出了一个非常刁钻的突破定位：在贴近真实工作的 DevOps 和专业职场任务上实现爆发，同时成本直降一半[]。</p>
-      </div>
-      <div class="post-card-foot">
-        <a class="btn" href="posts/grok-45-vs-opus-48/index.html">阅读全文</a>
-        <div class="tag-stats"><a href="posts/grok-45-vs-opus-48/index.html">前沿观察</a><span>5 分钟阅读</span></div>
-      </div>
-    </article>
-
-    <article class="post-card" data-date="2026-07-10">
-      <div class="post-card-head">
-        <div class="post-card-head-main">
-          <h2 class="card-title"><a href="posts/gpt56-flagship-battle/index.html">面试官坏笑：“GPT-5.6 刚发布，比 Claude 5 和 Grok 4.5 强吗？” 我怒骂：“现场给你测试是吧？”</a></h2>
-          <p class="card-excerpt-line">三家新旗舰模型凑齐了，零人工干预全栈工程大乱斗！[]</p>
-        </div>
-        <div class="post-card-head-meta">
-          <p class="card-date">2026年7月10日</p>
-          <div class="card-author"><span>全栈研发组</span><div class="avatar"></div></div>
-        </div>
-      </div>
-      <img class="post-card-img" src="posts/gpt56-flagship-battle/battle-cover.jpg" alt="大乱斗封面图">
-      <div class="post-card-body">
-        <p>刚刚，OpenAI 正式发布了 GPT-5.6 系列模型，包含 Sol 旗舰、Terra 均衡和 Luna 轻量三个版本[]。这下，三家的新旗舰模型终于凑齐了，这种难得的机会，我们直接使用 Cursor 的子 Agent 能力给他们安排了一场硬核的足球游戏全栈开发大乱斗[]！</p>
-      </div>
-      <div class="post-card-foot">
-        <a class="btn" href="posts/gpt56-flagship-battle/index.html">阅读全文</a>
-        <div class="tag-stats"><a href="posts/gpt56-flagship-battle/index.html">模型乱斗</a><span>6 分钟阅读</span></div>
-      </div>
-    </article>
-
-    <article class="post-card" data-date="2026-07-09">
-      <div class="post-card-head">
-        <div class="post-card-head-main">
-          <h2 class="card-title"><a href="posts/local-ai-vram-guide/index.html">本地跑大模型、ComfyUI画图与视频生成，显存多少才够用？16G 到 48G 体验全拆解</a></h2>
-          <p class="card-excerpt-line">24G 显存是当下本地 AI 创作的“舒适及格线”</p>
-        </div>
-        <div class="post-card-head-meta">
-          <p class="card-date">2026年7月9日</p>
-          <div class="card-author"><span>硬件评测组</span><div class="avatar"></div></div>
-        </div>
-      </div>
-      <img class="post-card-img" src="posts/local-ai-vram-guide/cover.jpg" alt="显存指南封面图">
-      <div class="post-card-body">
-        <p>今天和大家聊聊本地AI。把大家最关心的“显存”问题一次性盘清楚。先抛出核心结论：24G 显存是当下本地 AI 创作的“舒适及格线”，能用、能干活，但谈不上爽；想要流畅无阻，32G 是门槛；而到了 48G，那才是真正的“爽到飞起”。</p>
-      </div>
-      <div class="post-card-foot">
-        <a class="btn" href="posts/local-ai-vram-guide/index.html">阅读全文</a>
-        <div class="tag-stats"><a href="posts/local-ai-vram-guide/index.html">AI 硬件</a><span>5 分钟阅读</span></div>
-      </div>
-    </article>
-
-    <article class="post-card" data-date="2026-07-06">
-      <div class="post-card-head">
-        <div class="post-card-head-main">
-          <h2 class="card-title"><a href="posts/sora-dead-seedance/index.html">Sora死了，可灵估值缩水20亿，Seedance 2.5凭什么让110万企业买单？</a></h2>
-          <p class="card-excerpt-line">AI视频赛道已经从“谁画得好”进入了“谁能让更多人画得好”</p>
-        </div>
-        <div class="post-card-head-meta">
-          <p class="card-date">2026年7月</p>
-          <div class="card-author"><span>行业深度</span><div class="avatar"></div></div>
-        </div>
-      </div>
-      <img class="post-card-img" src="posts/sora-dead-seedance/pic-1.jpg" alt="Seedance 2.5 封面">
-      <div class="post-card-body">
-        <p>上个月，OpenAI悄悄关停了Sora。技术很强，但产品等于零。而火山引擎甩出的Seedance 2.5正在重塑B端全模态生产力生态。AI视频终于从“做预告片”进化到了“讲故事”的历史节点。</p>
-      </div>
-      <div class="post-card-foot">
-        <a class="btn" href="posts/sora-dead-seedance/index.html">阅读全文</a>
-        <div class="tag-stats"><a href="posts/sora-dead-seedance/index.html">AI 视频</a><span>4 分钟阅读</span></div>
-      </div>
-    </article>
-
-    <article class="post-card" data-date="2026-07-04">
-      <div class="post-card-head">
-        <div class="post-card-head-main">
-          <h2 class="card-title"><a href="posts/ai-news-july-week1/index.html">Fable 5骂用户"太蠢"、GPT-5.6偷跑、阿里封杀Claude——7月第一周，AI圈一天一个王炸</a></h2>
-          <p class="card-excerpt-line">AI模型的竞争，已经进入了“你的工具链还安不安全”的新阶段</p>
-        </div>
-        <div class="post-card-head-meta">
-          <p class="card-date">2026年7月</p>
-          <div class="card-author"><span>大事件观察</span><div class="avatar"></div></div>
-        </div>
-      </div>
-      <img class="post-card-img" src="posts/ai-news-july-week1/pic-1.jpg" alt="7月王炸封面">
-      <div class="post-card-body">
-        <p>Claude Fable 5回归却被爆出隐藏日志降级与推理内心戏泄露；OpenAI精准卡点偷跑新模型代码；阿里全集团下令卸载Claude Code。AI工具供应链正在经历重大的信任与地缘安全迁徙。</p>
-      </div>
-      <div class="post-card-foot">
-        <a class="btn" href="posts/ai-news-july-week1/index.html">阅读全文</a>
-        <div class="tag-stats"><a href="posts/ai-news-july-week1/index.html">行业动态</a><span>6 分钟阅读</span></div>
-      </div>
-    </article>
-
-    <article class="post-card" data-date="2026-07-03">
-      <div class="post-card-head">
-        <div class="post-card-head-main">
-          <h2 class="card-title"><a href="posts/global-llm-ranking/index.html">全球AI大模型最新排行榜更新，中美AI大模型的真实差距，不在分数上</a></h2>
-          <p class="card-excerpt-line">美国在做“AI 能想到的最难的事”，中国在做“AI 能用到的最多的地方”</p>
-        </div>
-        <div class="post-card-head-meta">
-          <p class="card-date">2026年7月</p>
-          <div class="card-author"><span>数据分析组</span><div class="avatar"></div></div>
-        </div>
-      </div>
-      <img class="post-card-img" src="posts/global-llm-ranking/ranking-1.jpg" alt="大模型排行榜封面">
-      <div class="post-card-body">
-        <p>最新大模型天梯榜释出，Claude Fable 5 以高分登顶。然而拆开中美两边的数据，真正的战场早已不局限在评测跑分上，两边的商业路线、每秒 Token 推理速度以及企业级调用开销呈现了截然不同的演进方向。</p>
-      </div>
-      <div class="post-card-foot">
-        <a class="btn" href="posts/global-llm-ranking/index.html">阅读全文</a>
-        <div class="tag-stats"><a href="posts/global-llm-ranking/index.html">数据测评</a><span>5 分钟阅读</span></div>
-      </div>
-    </article>
-
-    <article class="post-card" data-date="2026-07-02">
-      <div class="post-card-head">
-        <div class="post-card-head-main">
-          <h2 class="card-title"><a href="posts/silicon-valley-llm/index.html">一年翻十倍：中国AI模型是怎么让硅谷创业公司"叛变"的？</a></h2>
-          <p class="card-excerpt-line">便宜 + 开源 + 跑得快三招组合拳，悄悄成了全球开发者的基础设施</p>
-        </div>
-        <div class="post-card-head-meta">
-          <p class="card-date">2026年7月</p>
-          <div class="card-author"><span>跨境技术组</span><div class="avatar"></div></div>
-        </div>
-      </div>
-      <img class="post-card-img" src="posts/silicon-valley-llm/data-1.jpg" alt="硅谷开发者封面图">
-      <div class="post-card-body">
-        <p>7月AI模型平台 OpenRouter 的一组出海数据震撼了硅谷：美国创业公司调用中国 AI 模型的比例在一年内疯狂翻了十倍。这不是卖一次技术，而是商业逻辑和高昂的算力账单逼着开发者正在拿脚投票。</p>
-      </div>
-      <div class="post-card-foot">
-        <a class="btn" href="posts/silicon-valley-llm/index.html">阅读全文</a>
-        <div class="tag-stats"><a href="posts/silicon-valley-llm/index.html">出海纵深</a><span>4 分钟阅读</span></div>
-      </div>
-    </article>
-
-    <article class="post-card" data-date="2026-06-30">
-      <div class="post-card-head">
-        <div class="post-card-head-main">
-          <h2 class="card-title"><a href="posts/llm-spec-explainer/index.html">别只看8B和“满血版”：AI模型到底有什么区别？</a></h2>
-          <p class="card-excerpt-line">从参数、向量到本地部署，大白话一篇看懂AI模型背后的硬核逻辑</p>
-        </div>
-        <div class="post-card-head-meta">
-          <p class="card-date">2026年7月</p>
-          <div class="card-author"><span>技术科普组</span><div class="avatar"></div></div>
-        </div>
-      </div>
-      <img class="post-card-img" src="posts/llm-spec-explainer/concept-1.jpg" alt="AI模型术语封面图">
-      <div class="post-card-body">
-        <p>第一次看到 8B、128K、满血版这些专业词汇难免一头雾水。其实它们都在回答几个非常实际的诉求：这个 AI 能力边界在哪里？你的个人电脑配置究竟带不带得动？它又最适合拿来干什么？</p>
-      </div>
-      <div class="post-card-foot">
-        <a class="btn" href="posts/llm-spec-explainer/index.html">阅读全文</a>
-        <div class="tag-stats"><a href="posts/llm-spec-explainer/index.html">AI 科普</a><span>3 分钟阅读</span></div>
-      </div>
-    </article>
-
-  </div>
-
-  <nav class="pagination" id="pagination"></nav>
-  </main>
-</div>
-
-<script>
-(function () {
-  var pageSize = 3; 
-  var postContainer = document.getElementById('post-list');
-  var posts = Array.prototype.slice.call(document.querySelectorAll('#post-list .post-card'));
-  
-  // 按 data-date 智能降序排序（最新发布的排最前）
-  posts.sort(function(a, b) {
-    var dateA = new Date(a.getAttribute('data-date') || 0);
-    var dateB = new Date(b.getAttribute('data-date') || 0);
-    return dateB - dateA;
-  });
-
-  posts.forEach(function(post) {
-    postContainer.appendChild(post);
-  });
-
-  var totalPages = Math.max(1, Math.ceil(posts.length / pageSize));
-  var pagination = document.getElementById('pagination');
-  var currentPage = 1;
-
-  function render(page) {
-    currentPage = page;
-    var start = (page - 1) * pageSize;
-    posts.forEach(function (post, i) {
-      post.style.display = (i >= start && i < start + pageSize) ? '' : 'none';
-    });
-    renderPagination();
-  }
-
-  function renderPagination() {
-    pagination.innerHTML = '';
-    var prev = document.createElement('button');
-    prev.className = 'page-btn';
-    prev.textContent = '← 上一页';
-    prev.disabled = currentPage === 1;
-    prev.addEventListener('click', function () { render(currentPage - 1); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    pagination.appendChild(prev);
-
-    for (var p = 1; p <= totalPages; p++) {
-      (function (p) {
-        var btn = document.createElement('button');
-        btn.className = 'page-btn' + (p === currentPage ? ' active' : '');
-        btn.textContent = p;
-        btn.addEventListener('click', function () { render(p); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-        pagination.appendChild(btn);
-      })(p);
-    }
-
-    var next = document.createElement('button');
-    next.className = 'page-btn';
-    next.textContent = '下一页 →';
-    next.disabled = currentPage === totalPages;
-    next.addEventListener('click', function () { render(currentPage + 1); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    pagination.appendChild(next);
-  }
-  render(1);
-})();
-</script>
-
-<footer class="site-footer">
-  <span>© 2026 Global Watch</span>
-  <span>独立硬核科技视界</span>
-</footer>
-
+    <!-- Recipes Database -->
+    <script src="recipes.js"></script>
+    <!-- Application Logic -->
+    <script src="app.js"></script>
 </body>
 </html>
