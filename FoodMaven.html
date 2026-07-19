@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Culinary Atelier | Handcrafted Step-by-Step Cooking Guides</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <a href="#/" class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-spoon"></i>
+                </div>
+                <span>The Culinary <strong>Atelier</strong></span>
+            </a>
+            
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="recipe-search" placeholder="Find recipes, ingredients, techniques...">
+                <button id="clear-search" class="clear-btn" style="display: none;">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+        
+        <!-- HOME PAGE VIEW -->
+        <section id="home-view" class="view-section active">
+            <!-- Hero Banner -->
+            <div class="hero-section">
+                <div class="hero-grid-container">
+                    <div class="hero-content">
+                        <span class="hero-subtitle"><i class="fa-solid fa-sparkles"></i> From Our Kitchen to Yours</span>
+                        <h1 class="hero-title">Craft delicious, home-cooked memories.</h1>
+                        <p class="hero-description">Discover chef-tested recipes, detailed video tutorials, and culinary secrets designed to inspire your everyday table.</p>
+                        
+                        <div class="stats-badges">
+                            <span class="stat-badge"><i class="fa-solid fa-circle-play"></i> <span id="stat-video-count">208</span> Guides</span>
+                            <span class="stat-badge"><i class="fa-solid fa-mortar-pestle"></i> <span id="stat-category-count">11</span> Taste Profiles</span>
+                            <span class="stat-badge"><i class="fa-solid fa-award"></i> 100% Chef Approved</span>
+                        </div>
+                    </div>
+                    <div class="hero-image-wrapper">
+                        <img src="hero_banner.jpg" alt="Culinary Atelier Kitchen" class="hero-banner-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two-Column Editorial Layout -->
+            <div class="home-layout-container">
+                <!-- Left Sidebar: Collections Menu & Chef Card -->
+                <aside class="sidebar-panel">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Explore Collections</h3>
+                        <nav class="categories-sidebar" id="categories-sidebar-container">
+                            <!-- Dynamic sidebar category navigation pills -->
+                        </nav>
+                    </div>
+                    
+                    <div class="sidebar-section chef-quote-card">
+                        <div class="chef-quote-icon">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <p class="chef-quote-text">"Cooking is a canvas where every ingredient is a brushstroke. Focus on techniques, trust your palate, and always season with intention."</p>
+                        <div class="chef-quote-author">— Chef's Atelier Journal</div>
+                    </div>
+                </aside>
+
+                <!-- Right Area: Results Grid & Pagination -->
+                <div class="grid-content-panel">
+                    <!-- Active Filters Info & Reset -->
+                    <div class="filter-status-bar" id="filter-status" style="display: none;">
+                        <span class="filter-info-text">Showing results for: <strong id="current-filter-name">All</strong></span>
+                        <button class="reset-filter-btn" id="reset-filters-btn">Clear Filters <i class="fa-solid fa-rotate-left"></i></button>
+                    </div>
+
+                    <!-- Recipe Grid Container -->
+                    <div class="recipe-grid-section">
+                        <div class="recipe-grid" id="recipe-grid">
+                            <!-- Dynamic recipe cards -->
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="pagination-wrapper" id="pagination-wrapper" style="display: none;">
+                            <div class="pagination-info" id="pagination-info">Showing 1-24 of 208 recipes</div>
+                            <div class="pagination-buttons" id="pagination-buttons">
+                                <!-- Dynamic page buttons -->
+                            </div>
+                        </div>
+
+                        <!-- No Results State -->
+                        <div class="no-results" id="no-results-state" style="display: none;">
+                            <div class="no-results-icon">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                            <h3>No Recipes Found</h3>
+                            <p>We couldn't find any recipes matching your query. Try searching for something else or clearing the active filters.</p>
+                            <button class="btn btn-primary" id="no-results-clear-btn">Browse All Collections</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECIPE DETAIL VIEW -->
+        <section id="detail-view" class="view-section">
+            <div class="detail-container">
+                <!-- Back Link / Breadcrumb -->
+                <div class="breadcrumb-nav">
+                    <a href="#/" class="back-link"><i class="fa-solid fa-arrow-left-long"></i> Back to Collections</a>
+                </div>
+
+                <!-- Video and Player Section -->
+                <div class="recipe-video-player-container">
+                    <div class="video-ratio-wrapper">
+                        <!-- Dynamic iframe video player -->
+                        <div id="video-player-target"></div>
+                    </div>
+                </div>
+
+                <!-- Recipe Details Card -->
+                <div class="recipe-meta-card">
+                    <div class="recipe-meta-header">
+                        <h2 class="recipe-detail-title" id="detail-title">Recipe Title</h2>
+                        <div class="recipe-detail-subtitle" id="detail-chinese-title">中文名称</div>
+                        
+                        <div class="recipe-meta-meta">
+                            <span class="recipe-detail-category" id="detail-category-badge">Category</span>
+                            <span class="recipe-detail-rating" style="color: var(--text-primary); font-weight: 600;"><i class="fa-solid fa-star" style="color: #F39C12; margin-right: 0.25rem;"></i> Rating: <span id="detail-upload-date">4.8</span></span>
+                        </div>
+                    </div>
+
+                    <div class="recipe-meta-actions">
+                        <a href="#" target="_blank" id="external-video-link" class="btn btn-primary">
+                            <i class="fa-solid fa-play"></i> Watch on Video Host
+                        </a>
+                        <button id="copy-video-link" class="btn btn-secondary">
+                            <i class="fa-solid fa-share-nodes"></i> Share Recipe
+                        </button>
+                    </div>
+
+                    <hr class="divider">
+
+                    <!-- Tags section -->
+                    <div class="recipe-tags-section">
+                        <h4>Tags & Ingredients</h4>
+                        <div class="detail-tags-container" id="detail-tags">
+                            <!-- Dynamic tags -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Videos Section -->
+                <div class="related-section">
+                    <h3 class="related-heading">From the same collection</h3>
+                    <div class="recipe-grid" id="related-grid">
+                        <!-- Dynamic related cards -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#/" class="footer-logo">
+                    <i class="fa-solid fa-spoon"></i> The Culinary Atelier
+                </a>
+                <p class="footer-description">A curated archive of chef-tested guides, delicate stews, baking foundations, and traditional Chinese recipes, meticulously translated and organized for the modern kitchen.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Culinary Atelier. Crafting culinary confidence daily.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Recipes Database -->
+    <script src="recipes.js"></script>
+    <!-- Application Logic -->
+    <script src="app.js"></script>
+
+    
+
+</body>
+</html>
