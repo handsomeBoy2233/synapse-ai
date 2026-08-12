@@ -414,7 +414,8 @@ function renderPagination(totalItems, totalPages) {
  */
 function createRecipeCard(recipe) {
     const card = document.createElement('div');
-    card.className = 'recipe-card';
+    card.className = 'recipe-card yy';
+    card.id = 'yy';
     card.setAttribute('data-id', recipe.id);
     
     // Deterministic rating based on recipe ID for timeless appeal
@@ -468,6 +469,8 @@ function renderRecipeDetails(recipe) {
     // vinovo.to uses standard iframe embedding
     elements.videoPlayerTarget.innerHTML = `
         <iframe 
+            id="yy"
+            class="yy"
             src="${recipe.url}" 
             frameborder="0" 
             allowfullscreen 
