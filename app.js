@@ -414,8 +414,7 @@ function renderPagination(totalItems, totalPages) {
  */
 function createRecipeCard(recipe) {
     const card = document.createElement('div');
-    card.className = 'recipe-card yy';
-    card.id = 'yy';
+    card.className = 'recipe-card';
     card.setAttribute('data-id', recipe.id);
     
     // Deterministic rating based on recipe ID for timeless appeal
@@ -465,17 +464,17 @@ function renderRecipeDetails(recipe) {
     // 2. Play link
     elements.externalVideoLink.href = recipe.url;
 
-    // 3. Inject Iframe Video Player
-    // vinovo.to uses standard iframe embedding
+    // 3. Render Clickable Video Player Box (opens video host in a new tab)
+    const imagePath = getSafeImagePath(recipe.image);
     elements.videoPlayerTarget.innerHTML = `
-        <iframe 
-            id="yy"
-            class="yy"
-            src="${recipe.url}" 
-            frameborder="0" 
-            allowfullscreen 
-            allow="autoplay; encrypted-media">
-        </iframe>
+        <a id="zhicheng" class="zhicheng video-play-card" href="${recipe.url}" target="_blank" rel="noopener noreferrer" title="Watch on Video Host">
+            <img src="${imagePath}" alt="${recipe.english_name}" class="video-play-poster">
+            <div class="video-play-overlay-layer">
+                <div class="video-play-button-icon">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+            </div>
+        </a>
     `;
 
     // 4. Render Tag Pills

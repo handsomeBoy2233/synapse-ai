@@ -3950,7 +3950,7 @@ const RECIPES_DB = [
     "chinese_name": "麻婆豆腐",
     "english_name": "Mapo Tofu (Spicy Sichuan Tofu)",
     "image": "image/麻婆豆腐#food #美食教程 #美食 #中餐 .png",
-    "url": "https://vinovo.to/e/0py79x00hnn2n0",
+    "url": "https://vidara.to/v/5iGee4i0RYzu8",
     "category": "Tofu & Eggs",
     "categories": [
       "Tofu & Eggs"
@@ -3967,7 +3967,7 @@ const RECIPES_DB = [
     "chinese_name": "黄焖牛肉",
     "english_name": "Huangmen Braised Beef in Claypot",
     "image": "image/黄焖牛肉#food #美食教程 #美食 #中餐 .png",
-    "url": "https://vinovo.to/e/9q27vk33hwy243",
+    "url": "https://vidara.to/v/du9LhbcpGaPyD",
     "category": "Soups & Claypots",
     "categories": [
       "Soups & Claypots",
@@ -3988,7 +3988,7 @@ const RECIPES_DB = [
     "chinese_name": "黄焖牛肉",
     "english_name": "Huangmen Braised Beef in Claypot",
     "image": "image/黄焖牛肉#美食 #food #中餐 #美食教程 .png",
-    "url": "https://vinovo.to/e/0py79xd3avj9jy",
+    "url": "https://vidara.to/v/COCY2p1TzKCle",
     "category": "Soups & Claypots",
     "categories": [
       "Soups & Claypots",
@@ -4009,7 +4009,7 @@ const RECIPES_DB = [
     "chinese_name": "黄焖鸡",
     "english_name": "Huangmen Braised Chicken (Yellow Braised Chicken)",
     "image": "image/黄焖鸡#美食教程 #中餐 #food #美食 .png",
-    "url": "https://vinovo.to/e/dd97nx58hgq47w6",
+    "url": "https://vidara.to/v/KWzl30DfCSoPu",
     "category": "Chicken & Poultry",
     "categories": [
       "Chicken & Poultry",
@@ -4028,7 +4028,7 @@ const RECIPES_DB = [
     "chinese_name": "黄骨鱼炖豆腐",
     "english_name": "Yellow Catfish Soup with Tender Tofu",
     "image": "image/黄骨鱼炖豆腐#中华料理 #美食 #food #美食教程 #中餐 .png",
-    "url": "https://vinovo.to/e/gg1j2ve8adv9y3g",
+    "url": "https://vidara.to/v/F2dZ85bjwSje6",
     "category": "Soups & Claypots",
     "categories": [
       "Soups & Claypots",
@@ -4049,7 +4049,7 @@ const RECIPES_DB = [
     "chinese_name": "黑椒牛排",
     "english_name": "Black Pepper Ribeye Steak",
     "image": "image/黑椒牛排#food #中餐 #美食 .png",
-    "url": "https://vinovo.to/e/kgn091k2adek98",
+    "url": "https://vidara.to/v/lXldeGlXJKo2K",
     "category": "Home Cooking",
     "categories": [
       "Home Cooking"

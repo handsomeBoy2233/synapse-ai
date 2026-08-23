@@ -654,13 +654,68 @@ a {
     padding-top: 56.25%;
 }
 
-.video-ratio-wrapper iframe {
+.video-ratio-wrapper iframe,
+.video-play-card {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: 0;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.video-play-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.video-play-overlay-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.video-play-button-icon {
+    width: 76px;
+    height: 76px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111111;
+    font-size: 1.85rem;
+    padding-left: 4px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s ease, color 0.3s ease;
+}
+
+.video-play-card:hover .video-play-poster {
+    transform: scale(1.03);
+}
+
+.video-play-card:hover .video-play-overlay-layer {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.video-play-card:hover .video-play-button-icon {
+    transform: scale(1.12);
+    background: #ffffff;
+    color: var(--primary);
 }
 
 .recipe-meta-card {
