@@ -639,7 +639,8 @@ a {
     transform: translateX(-4px);
 }
 
-.recipe-video-player-container {
+.recipe-video-player-container,
+.video-panel {
     background-color: #000;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
@@ -648,6 +649,7 @@ a {
     margin-bottom: 2rem;
 }
 
+.video-wrapper,
 .video-ratio-wrapper {
     position: relative;
     width: 100%;
@@ -655,6 +657,7 @@ a {
 }
 
 .video-ratio-wrapper iframe,
+.video-placeholder,
 .video-play-card {
     position: absolute;
     top: 0;
@@ -662,13 +665,19 @@ a {
     width: 100%;
     height: 100%;
     border: 0;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     cursor: pointer;
     text-decoration: none;
 }
 
+.video-cover-image,
 .video-play-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -676,20 +685,10 @@ a {
     transition: transform 0.4s ease;
 }
 
-.video-play-overlay-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
-}
-
+.play-trigger-btn,
 .video-play-button-icon {
+    position: relative;
+    z-index: 2;
     width: 76px;
     height: 76px;
     background: rgba(255, 255, 255, 0.92);
@@ -704,14 +703,12 @@ a {
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s ease, color 0.3s ease;
 }
 
+.video-placeholder:hover .video-cover-image,
 .video-play-card:hover .video-play-poster {
     transform: scale(1.03);
 }
 
-.video-play-card:hover .video-play-overlay-layer {
-    background: rgba(0, 0, 0, 0.25);
-}
-
+.video-placeholder:hover .play-trigger-btn,
 .video-play-card:hover .video-play-button-icon {
     transform: scale(1.12);
     background: #ffffff;

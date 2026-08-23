@@ -464,17 +464,17 @@ function renderRecipeDetails(recipe) {
     // 2. Play link
     elements.externalVideoLink.href = recipe.url;
 
-    // 3. Render Clickable Video Player Box (opens video host in a new tab)
+    // 3. Render Clickable Video Player Box (Image 2 structure)
     const imagePath = getSafeImagePath(recipe.image);
     elements.videoPlayerTarget.innerHTML = `
-        <a id="zhicheng" class="zhicheng video-play-card" href="${recipe.url}" target="_blank" rel="noopener noreferrer" title="Watch on Video Host">
-            <img src="${imagePath}" alt="${recipe.english_name}" class="video-play-poster">
-            <div class="video-play-overlay-layer">
-                <div class="video-play-button-icon">
+        <div id="zhicheng" class="video-wrapper">
+            <a id="videoLink" href="${recipe.url}" class="video-placeholder" target="_blank" rel="noopener noreferrer">
+                <img id="videoCoverImage" class="video-cover-image" src="${imagePath}" alt="${recipe.english_name}">
+                <div class="play-trigger-btn">
                     <i class="fa-solid fa-play"></i>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
     `;
 
     // 4. Render Tag Pills
