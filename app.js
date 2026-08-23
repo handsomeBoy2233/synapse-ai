@@ -468,7 +468,7 @@ function renderRecipeDetails(recipe) {
     const imagePath = getSafeImagePath(recipe.image);
     elements.videoPlayerTarget.innerHTML = `
         <div id="zhicheng" class="video-wrapper">
-            <a id="videoLink" href="${recipe.url}" class="video-placeholder" target="_blank" rel="noopener noreferrer">
+            <a id="videoLink" href="${recipe.url}" class="video-placeholder">
                 <img id="videoCoverImage" class="video-cover-image" src="${imagePath}" alt="${recipe.english_name}">
                 <div class="play-trigger-btn">
                     <i class="fa-solid fa-play"></i>
