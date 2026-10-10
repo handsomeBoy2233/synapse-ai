@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Video - VelvetVision HD Cinema</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="brand-logo">
+                    <span class="logo-box"><i class="fa-solid fa-play"></i></span>
+                    <span>NEXUS<span class="logo-accent">STREAM</span></span>
+                </a>
+
+                <a href="index.html" class="btn-back-home">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Videos
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Player Main Section -->
+    <main class="player-layout">
+        <div class="container">
+            
+            <!-- Video Player Main Card -->
+            <div class="player-main-card">
+                
+                <div class="video-embed-wrapper yy" id="yy">
+                    <!-- iFrame dynamically injected by player.js -->
+                </div>
+
+                <div class="player-details-body">
+                    <h1 id="videoTitle" class="player-title">Loading Ultra HD Video...</h1>
+                    <div class="player-meta-bar">
+                        <span class="meta-pill"><i class="fa-regular fa-eye"></i> <span id="videoViews">200K</span> Views</span>
+                        <span class="meta-pill highlight-like"><i class="fa-solid fa-thumbs-up"></i> <span id="videoLikes">98%</span> Rating</span>
+                        <span class="meta-pill" style="display:none;"><i class="fa-regular fa-clock"></i> <span id="videoDuration"></span></span>
+                        <span class="meta-pill cat-badge" id="videoCategory"><i class="fa-solid fa-tag"></i> Asian</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 VelvetVision HD. All rights reserved. 18+ Adult Video Aggregator.</p>
+        </div>
+    </footer>
+
+    <script src="videos_data.js"></script>
+    <script src="player.js"></script>
+</body>
+</html>
