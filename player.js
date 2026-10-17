@@ -75,7 +75,7 @@ function renderPlayer(video) {
     }
 
     // Set page title
-    document.title = `${video.title || 'Watch Video'} - NEXUS STREAM HD`;
+    document.title = `${video.title || 'Watch Video'} - LustFlix 4K Cinema`;
 }
 
 
