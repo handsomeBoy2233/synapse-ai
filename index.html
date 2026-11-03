@@ -11,10 +11,13 @@
     <title>LustFlix 4K - Premium Adult Cinema & 1,200+ Asian AV Streams</title>
     <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- 首屏缩略图来源，提前建连 -->
+    <link rel="preconnect" href="https://thumb-cdn77.xnxx-cdn.com" crossorigin>
+    <link rel="dns-prefetch" href="https://thumbs-gcore.xnxx-cdn.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome Icons：异步加载，不阻塞首屏 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -70,7 +73,7 @@
                     <i class="fa-solid fa-clapperboard"></i>
                     <span>Browse By Genre & Category</span>
                 </div>
-                <span class="cat-count">40 Channels Available</span>
+                <span class="cat-count">28 Channels Available</span>
             </div>
             
             <div class="category-scroll-container" id="tagCloud">
@@ -94,26 +97,14 @@
                 <button class="cat-pill" data-filter="cumshot">Cumshot</button>
                 <button class="cat-pill" data-filter="facial">Facial</button>
                 <button class="cat-pill" data-filter="student">Student</button>
-                <button class="cat-pill" data-filter="classroom">Classroom</button>
                 <button class="cat-pill" data-filter="office">Office</button>
                 <button class="cat-pill" data-filter="outdoor">Outdoor</button>
-                <button class="cat-pill" data-filter="hotel">Hotel</button>
-                <button class="cat-pill" data-filter="dormitory">Dormitory</button>
                 <button class="cat-pill" data-filter="pov">POV</button>
                 <button class="cat-pill" data-filter="maid">Maid</button>
                 <button class="cat-pill" data-filter="threesome">Threesome</button>
-                <button class="cat-pill" data-filter="couples">Couples</button>
                 <button class="cat-pill" data-filter="amateur">Amateur</button>
                 <button class="cat-pill" data-filter="mature">Mature</button>
-                <button class="cat-pill" data-filter="bareback">Bareback</button>
-                <button class="cat-pill" data-filter="smooth">Smooth</button>
-                <button class="cat-pill" data-filter="toys">Toys</button>
-                <button class="cat-pill" data-filter="swapping">Swapping</button>
-                <button class="cat-pill" data-filter="teacher">Teacher</button>
-                <button class="cat-pill" data-filter="stepsister">Stepsister</button>
-                <button class="cat-pill" data-filter="voyeur">Voyeur</button>
                 <button class="cat-pill" data-filter="debut">Debut</button>
-                <button class="cat-pill" data-filter="hardcore">Hardcore</button>
             </div>
         </section>
 
@@ -178,27 +169,29 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4 class="footer-title">Legal & Compliance</h4>
+                    <h4 class="footer-title">Legal &amp; Safety</h4>
                     <ul class="footer-links">
-                        <li><a href="#compliance">18 U.S.C. 2257 Record-Keeping</a></li>
-                        <li><a href="#compliance">Terms of Service</a></li>
-                        <li><a href="#compliance">Privacy Policy</a></li>
-                        <li><a href="#compliance">DMCA & Content Takedown</a></li>
-                        <li><a href="#compliance">Parental Controls</a></li>
+                        <li><a href="2257.html">18 U.S.C. 2257 Statement</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="dmca.html">DMCA &amp; Content Removal</a></li>
+                        <li><a href="report.html">Report Content</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="footer-bottom-bar">
+            <div class="footer-bottom-bar" id="compliance">
                 <p>&copy; 2026 LustFlix 4K Cinema. All rights reserved. 18+ Adult Video Portal.</p>
                 <p class="compliance-note">
-                    <i class="fa-solid fa-triangle-exclamation"></i> 18 U.S.C. 2257 Statement: All models appearing on this website were 18 years of age or older at the time of video production. We strictly prohibit any under-age content.
+                    <i class="fa-solid fa-shield-halved"></i> This site does not produce or host sexually explicit content. All videos are embedded from third-party platforms that are responsible for their own &sect; 2257 records. See our <a href="2257.html">2257 Statement</a>.
                 </p>
             </div>
         </div>
     </footer>
 
-    <script src="videos_data.js"></script>
-    <script src="script.js"></script>
+    <!-- 首屏数据：只含 24 条，gzip 后约 2.4KB -->
+    <script src="videos_core.js" defer></script>
+    <script src="script.js" defer></script>
+    <!-- videos_data.js（1270 条）由 script.js 在浏览器空闲时自动加载，勿在此引用 -->
 </body>
 </html>

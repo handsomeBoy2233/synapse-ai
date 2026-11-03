@@ -1,0 +1,218 @@
+/* Legal / static page styles — extends style.css variables */
+
+.legal-page {
+    padding: 40px 0 80px;
+}
+
+.legal-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.legal-head {
+    margin-bottom: 34px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.legal-head h1 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    margin: 0 0 10px;
+    line-height: 1.25;
+}
+
+.legal-head .legal-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.legal-updated {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 5px 12px;
+    border-radius: 99px;
+    background: rgba(255, 36, 83, 0.1);
+    border: 1px solid var(--border-subtle);
+    color: var(--accent-pink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.legal-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 28px 30px;
+    margin-bottom: 20px;
+}
+
+.legal-card h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 14px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legal-card h2::before {
+    content: '';
+    width: 3px;
+    height: 17px;
+    border-radius: 2px;
+    background: var(--primary-gradient);
+    flex: 0 0 auto;
+}
+
+.legal-card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 20px 0 8px;
+    color: var(--text-main);
+}
+
+.legal-card p,
+.legal-card li {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--text-muted);
+}
+
+.legal-card p {
+    margin: 0 0 12px;
+}
+
+.legal-card p:last-child,
+.legal-card ul:last-child {
+    margin-bottom: 0;
+}
+
+.legal-card ul,
+.legal-card ol {
+    margin: 0 0 12px;
+    padding-left: 20px;
+}
+
+.legal-card li {
+    margin-bottom: 7px;
+}
+
+.legal-card strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.legal-card a {
+    color: var(--accent-pink);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 64, 113, 0.35);
+}
+
+.legal-card a:hover {
+    border-bottom-color: var(--accent-pink);
+}
+
+.legal-note {
+    background: rgba(255, 153, 0, 0.07);
+    border: 1px solid rgba(255, 153, 0, 0.28);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    margin: 0 0 16px;
+}
+
+.legal-note p {
+    color: #ffc266;
+    margin: 0;
+    font-size: 13px;
+}
+
+.legal-note strong {
+    color: var(--accent-gold);
+}
+
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 14px;
+    font-size: 13px;
+}
+
+.legal-table th,
+.legal-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-muted);
+    vertical-align: top;
+}
+
+.legal-table th {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.legal-table tr:last-child td {
+    border-bottom: none;
+}
+
+.legal-contact {
+    background: var(--bg-surface);
+    border: 1px dashed var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    margin-top: 6px;
+}
+
+.legal-contact p {
+    margin: 0;
+    font-size: 13.5px;
+}
+
+.legal-contact .contact-mail {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent-pink);
+}
+
+.legal-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 11px 20px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.legal-back:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-subtle);
+}
+
+@media (max-width: 640px) {
+    .legal-card {
+        padding: 22px 18px;
+    }
+    .legal-head h1 {
+        font-size: 23px;
+    }
+    .legal-table th,
+    .legal-table td {
+        padding: 8px 6px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report Content</title>
+<meta name="description" content="Report illegal, underage, or non-consensual content.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-brand-wrap">
+        <a href="index.html" class="brand-logo"><span class="logo-icon"><i class="fa-solid fa-house"></i></span><span>Home</span></a>
+        <nav class="header-nav">
+          <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a>
+        </nav>
+      </div>
+      <div class="header-badges"><span class="badge-18">18+ ADULT</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="legal-page">
+  <div class="container">
+    <div class="legal-wrap">
+
+      <div class="legal-head">
+        <h1>Report Content</h1>
+        <p class="legal-sub">Report illegal, underage, or non-consensual material</p>
+        <span class="legal-updated">Last updated: 3 November 2026</span>
+      </div>
+
+      <div class="legal-note">
+        <p><strong>Underage content:</strong> use the contact below with the page URL. These reports are reviewed and delisted within 24 hours. You do not need to be the copyright holder, and you do not need to provide identification.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>What you can report here</h2>
+        <table class="legal-table">
+          <tr><th>Category</th><th>Response time</th></tr>
+          <tr><td>Depiction of a minor, or suspected minor</td><td>Within 24 hours</td></tr>
+          <tr><td>Non-consensual intimate imagery</td><td>Within 24 hours</td></tr>
+          <tr><td>Incest, bestiality, sexual violence</td><td>Within 48 hours</td></tr>
+          <tr><td>Copyright infringement</td><td>Within 3 business days</td></tr>
+          <tr><td>Malicious / deceptive advertisement</td><td>Within 5 business days</td></tr>
+        </table>
+      </div>
+
+      <div class="legal-card">
+        <h2>What to include</h2>
+        <p>To let us act quickly, please include:</p>
+        <ul>
+          <li>The <strong>full URL</strong> of the video page on this site, copied from your browser's address bar;</li>
+          <li>What the problem is, in one or two sentences;</li>
+          <li>If you are reporting non-consensual imagery, confirmation that you are the person depicted, or are authorised to act for them; and</li>
+          <li>Any supporting detail that helps us verify — but do not send identity documents.</li>
+        </ul>
+        <p>You may report anonymously. We will still review the entry, but we may be unable to confirm the outcome back to you.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>Where the video actually lives</h2>
+        <p>This site indexes and embeds videos; it does not host them. Delisting a page here removes it from our catalogue, but the underlying video continues to exist on the platform that published it. For full removal, also report the video to that platform — it is identified in the player frame on the video page (most videos here come from xnxx.com).</p>
+        <p>We strongly recommend doing both. Our delisting is immediate but local; the platform's removal is what actually takes the material down.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>Law enforcement and child-safety organisations</h2>
+        <p>Reports involving minors are preserved and, where US law applies, referred to the National Center for Missing &amp; Exploited Children (NCMEC). If you are reporting an emergency or an imminent risk to a person, contact your local police first — we cannot respond to emergencies.</p>
+        <p>You can also report directly to NCMEC through their reporting channel, or to the Internet Watch Foundation if you are in the UK.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>Contact</h2>
+        <div class="legal-contact">
+          <p><strong>Abuse &amp; content reports</strong><br>
+          <a href="#" class="contact-mail" data-mail="abuse"></a><br><br>
+          <strong>Copyright / DMCA</strong><br>
+          <a href="#" class="contact-mail" data-mail="dmca"></a><br><br>
+          <strong>General legal</strong><br>
+          <a href="#" class="contact-mail" data-mail="legal"></a></p>
+          <p style="margin-top:12px;font-size:12.5px;">Include the full URL of the video page. For DMCA notices, see the required elements on our <a href="dmca.html">DMCA page</a>.</p>
+        </div>
+      </div>
+
+      <a href="index.html" class="legal-back"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom-bar">
+      <p>&copy; 2026. All rights reserved. 18+ Adult Video Aggregator.</p>
+      <p class="compliance-note"><i class="fa-solid fa-shield-halved"></i> This site does not produce or host sexually explicit content. All videos are embedded from third-party platforms.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* 页面上不写死任何域名。
+   访问时用当前域名自动拼出邮箱，例如：
+     https://abc.com/dmca.html  ->  dmca@abc.com
+     https://xyz.net/dmca.html  ->  dmca@xyz.net
+   换域名无需改这个文件。 */
+(function () {
+  var host = (location.hostname || '').replace(/^www\./i, '');
+
+  var nodes = document.querySelectorAll('[data-mail]');
+  for (var i = 0; i < nodes.length; i++) {
+    var el = nodes[i];
+    var local = el.getAttribute('data-mail');
+
+    if (!host) {
+      // 本机 file:// 打开（没有域名）时，回退到站内联系页
+      if (el.tagName === 'A') {
+        el.href = 'report.html';
+        el.textContent = 'our Report page';
+      } else {
+        el.innerHTML = '<a href="report.html">our Report page</a>';
+      }
+      continue;
+    }
+
+    var addr = local + '@' + host;
+    if (el.tagName === 'A') {
+      el.href = 'mailto:' + addr;
+      el.textContent = addr;
+    } else {
+      el.textContent = addr;
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
